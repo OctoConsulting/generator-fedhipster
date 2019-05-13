@@ -12,11 +12,12 @@ youmay not use this file except in compliance with the License.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
     either express or implied. See the License for the specific language
         governing permissions and limitations under the License. -%>
+<%_ if (styleLibrary === 'bootstrap') { %>
 @import "bootstrap-variables";
 @import '~bootstrap/scss/functions';
-<%_ if (clientTheme !== 'none') { _%>
+<%_ if (clientTheme !== 'none') { %>
 @import "~bootswatch/dist/<%= clientTheme %>/variables";
-<%_ } _%>
+<%_ } %>
 @import '~bootstrap/scss/variables';
 
 /* ==============================================================
@@ -46,6 +47,24 @@ a:hover {
 .dropdown-item:hover {
     color: $dropdown-link-hover-color;
 }
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+cursor: pointer;
+}
+
+.thread-dump-modal-lock {
+max-width: 450px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+<%_ } %>
 
 /* ==========================================================================
 Browser Upgrade Prompt
@@ -179,23 +198,6 @@ entity detail page css
             margin-left: 0;
         }
     }
-}
-
-/* ==========================================================================
-ui bootstrap tweaks
-========================================================================== */
-.nav,
-.pagination,
-.carousel,
-.panel-title a {
-    cursor: pointer;
-}
-
-.thread-dump-modal-lock {
-    max-width: 450px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */

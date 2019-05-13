@@ -23,11 +23,15 @@ put Sass variables here:
 eg $input-color: red;
 ****************************/
 // Override Boostrap variables
-<%_ if (clientTheme !== 'none') {_%>
+<%_ if (clientTheme && clientTheme !== 'none') { _%>
 @import "~bootswatch/dist/<%= clientTheme %>/variables";
-<%_ } _%>// Import Bootstrap source files from node_modules
+<%_ } _%>
+<%_ if (styleLibrary === 'bootstrap') { _%>
 @import '~bootstrap/scss/bootstrap';
-<%_ if (clientTheme !== 'none') { _%>
+<%_ } else { _%>
+@import '~uswds/dist/css/uswds.min.css';
+<%_ } _%>
+<%_ if (clientTheme && clientTheme !== 'none') { _%>
 @import "~bootswatch/dist/<%= clientTheme %>/bootswatch";
 <%_ } _%>
 

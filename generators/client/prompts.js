@@ -21,9 +21,10 @@ const chalk = require('chalk');
 module.exports = {
     askForModuleName,
     askForClient,
+    askForStyleLibrary,
     askFori18n,
     askForClientTheme,
-    askForClientThemeVariant
+    askForClientThemeVariant,
 };
 
 function askForModuleName() {
@@ -67,6 +68,42 @@ function askForClient(meta) {
     });
 }
 
+function askForStyleLibrary(meta) {
+    if (!meta && this.existingProject) return;
+
+    const choices = [
+        {
+            value: 'uswds',
+            name: 'US Web Design System'
+        },
+        {
+            value: 'bootstrap',
+            name: 'Bootstrap'
+        }
+    ];
+
+    const PROMPT = {
+        type: 'list',
+        name: 'styleLibrary',
+        when: response => this.clientFramework === 'angularX',
+        message: 'How would you like to style your html?',
+        choices,
+        default: 'uswds'
+    };
+
+    if (meta) return PROMPT; // eslint-disable-line consistent-return
+
+    const done = this.async();
+
+    this.prompt(PROMPT).then(prompt => {
+        this.styleLibrary = prompt.styleLibrary;
+        if (this.styleLibrary === 'uswds') {
+            this.clientTheme = 'none';
+        }
+        done();
+    });
+}
+
 function askFori18n() {
     if (this.existingProject || this.configOptions.skipI18nQuestion) return;
 
@@ -79,6 +116,7 @@ function askForClientTheme(meta) {
     }
 
     const applicationType = this.applicationType;
+    const styleLibrary = this.styleLibrary;
     const done = this.async();
     const defaultChoices = [
         {
@@ -111,7 +149,7 @@ function askForClientTheme(meta) {
     const PROMPT = {
         type: 'list',
         name: 'clientTheme',
-        when: () => applicationType !== 'microservice' && applicationType !== 'uaa',
+        when: () => applicationType !== 'microservice' && applicationType !== 'uaa' && styleLibrary === 'bootstrap',
         message: 'Would you like to use a Bootswatch theme (https://bootswatch.com/)?',
         choices: defaultChoices,
         default: 'none'
@@ -166,13 +204,14 @@ function askForClientThemeVariant(meta) {
     }
 
     const applicationType = this.applicationType;
+    const styleLibrary = this.styleLibrary;
 
     const choices = [{ value: 'primary', name: 'Primary' }, { value: 'dark', name: 'Dark' }, { value: 'light', name: 'Light' }];
 
     const PROMPT = {
         type: 'list',
         name: 'clientThemeVariant',
-        when: () => applicationType !== 'microservice' && applicationType !== 'uaa',
+        when: () => applicationType !== 'microservice' && applicationType !== 'uaa' && styleLibrary === 'bootstrap',
         message: 'Choose a Bootswatch variant navbar theme (https://bootswatch.com/)?',
         choices,
         default: 'primary'

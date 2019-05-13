@@ -187,6 +187,7 @@ module.exports = class extends BaseBlueprintGenerator {
         return {
             askForModuleName: prompts.askForModuleName,
             askForClient: prompts.askForClient,
+            askForStyleLibrary: prompts.askForStyleLibrary,
             askFori18n: prompts.askFori18n,
             askForClientTheme: prompts.askForClientTheme,
             askForClientThemeVariant: prompts.askForClientThemeVariant,
@@ -211,6 +212,7 @@ module.exports = class extends BaseBlueprintGenerator {
                 statistics.sendSubGenEvent('generator', 'client', {
                     app: {
                         clientFramework: this.clientFramework,
+                        styleLibrary: this.styleLibrary,
                         enableTranslation: this.enableTranslation,
                         nativeLanguage: this.nativeLanguage,
                         languages: this.languages
@@ -239,6 +241,7 @@ module.exports = class extends BaseBlueprintGenerator {
                     applicationType: this.applicationType,
                     baseName: this.baseName,
                     clientFramework: this.clientFramework,
+                    styleLibrary: this.styleLibrary,
                     clientTheme: this.clientTheme,
                     clientThemeVariant: this.clientThemeVariant,
                     useSass: true,
@@ -287,6 +290,9 @@ module.exports = class extends BaseBlueprintGenerator {
                 }
                 if (this.configOptions.clientFramework) {
                     this.clientFramework = this.configOptions.clientFramework;
+                }
+                if (this.configOptions.styleLibrary) {
+                    this.styleLibrary = this.configOptions.styleLibrary;
                 }
                 if (this.configOptions.databaseType) {
                     this.databaseType = this.configOptions.databaseType;

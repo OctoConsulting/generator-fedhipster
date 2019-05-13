@@ -41,7 +41,7 @@
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
     "bootstrap": "4.3.1",
-    <%_ if (clientTheme !== 'none') { _%>
+    <%_ if (clientTheme && clientTheme !== 'none') { _%>
     "bootswatch": "4.2.1",
     <%_ } _%>
     "core-js": "2.6.5",
@@ -57,6 +57,9 @@
     "webstomp-client": "1.2.6",
     <%_ } _%>
     "tslib": "1.9.3",
+    <%_ if (styleLibrary === 'uswds') { _%>
+    "uswds": "2.0.1",
+    <%_ } _%>
     "zone.js": "0.8.29"
   },
   "devDependencies": {

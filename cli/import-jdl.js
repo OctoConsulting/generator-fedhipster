@@ -277,6 +277,7 @@ class JDLProcessor {
             this.skipClient = configuration.skipClient;
             this.clientFramework = configuration.clientFramework;
             this.clientFramework = this.clientFramework || 'angularX';
+            this.styleLibrary = configuration.styleLibrary;
             this.clientPackageManager = configuration.clientPackageManager;
             if (!this.clientPackageManager) {
                 if (this.useNpm) {

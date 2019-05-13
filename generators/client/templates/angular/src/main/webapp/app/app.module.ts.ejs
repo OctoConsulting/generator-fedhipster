@@ -21,10 +21,11 @@ import './vendor.ts';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+<%_ if (styleLibrary === 'bootstrap') { _%>
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+<%_ } %>
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { NgJhipsterModule } from 'ng-jhipster';
-
 <%_ if (authenticationType === 'jwt') { _%>
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 <%_ } _%>
@@ -43,10 +44,15 @@ import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import {
     <%=jhiPrefixCapitalized%>MainComponent,
+    <%_ if (styleLibrary === 'bootstrap') { _%>
     NavbarComponent,
+    <%_ } else { _%>
+    BannerComponent,
+    HeaderComponent,
+    <%_ } _%>
     FooterComponent,
     PageRibbonComponent,
-    <%_ if (enableTranslation) { _%>
+    <%_ if (enableTranslation && styleLibrary === 'bootstrap') { _%>
     ActiveMenuDirective,
     <%_ } _%>
     ErrorComponent
@@ -77,10 +83,15 @@ import {
     ],
     declarations: [
         <%=jhiPrefixCapitalized%>MainComponent,
+        <%_ if (styleLibrary === 'bootstrap') { %>
         NavbarComponent,
+        <%_ } else { _%>
+        HeaderComponent,
+        BannerComponent,
+        <%_ } _%>
         ErrorComponent,
         PageRibbonComponent,
-        <%_ if (enableTranslation) { _%>
+        <%_ if (enableTranslation && styleLibrary === 'bootstrap') { _%>
         ActiveMenuDirective,
         <%_ } _%>
         FooterComponent
@@ -112,7 +123,9 @@ import {
     bootstrap: [ <%=jhiPrefixCapitalized%>MainComponent ]
 })
 export class <%=angularXAppName%>AppModule {
+    <%_ if (styleLibrary === 'bootstrap') { _%>
     constructor(private dpConfig: NgbDatepickerConfig) {
         this.dpConfig.minDate = {year: moment().year() - 100, month: 1, day: 1};
     }
+    <%_ } _%>
 }

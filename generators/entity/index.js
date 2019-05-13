@@ -188,6 +188,7 @@ class EntityGenerator extends BaseBlueprintGenerator {
                 if (!context.clientFramework) {
                     context.clientFramework = 'angularX';
                 }
+                context.styleLibrary = configuration.get('styleLibrary');
                 context.clientPackageManager = configuration.get('clientPackageManager');
                 if (!context.clientPackageManager) {
                     if (context.useYarn) {

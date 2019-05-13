@@ -18,13 +18,20 @@
 -%>
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { errorRoute, navbarRoute } from './layouts';
+import { errorRoute } from './layouts';
+<%_ if (styleLibrary === 'bootstrap') { %>
+import { navbarRoute as headerRoute } from './layouts';
+<%_ } else { %>
+import { headerRoute } from './layouts';
+<%_ } %>
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 
 const LAYOUT_ROUTES = [
-    navbarRoute,
+    headerRoute,
     ...errorRoute
 ];
+
+console.warn(LAYOUT_ROUTES);
 
 @NgModule({
     imports: [

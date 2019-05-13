@@ -27,6 +27,9 @@ import {
     <%_ if (authenticationType === 'session') { _%>
     sessionsRoute,
     <%_ } _%>
+    <%_ if (styleLibrary === 'uswds') { _%>
+    loginPageRoute,
+    <%_ } _%>
     settingsRoute
 } from './';
 
@@ -38,6 +41,9 @@ const ACCOUNT_ROUTES = [
     registerRoute,
     <%_ if (authenticationType === 'session') { _%>
     sessionsRoute,
+    <%_ } _%>
+    <%_ if (styleLibrary === 'uswds') { _%>
+    loginPageRoute,
     <%_ } _%>
     settingsRoute
 ];

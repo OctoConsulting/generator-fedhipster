@@ -41,3 +41,9 @@ export * from './sessions/session.model';
 export * from './settings/settings.component';
 export * from './settings/settings.route';
 export * from './account.route';
+<%_ if (styleLibrary === 'uswds') { _%>
+export * from './login-page/sessions.component';
+export * from './login-page/sessions.service';
+export * from './sessions/sessions.route';
+export * from './sessions/session.model';
+<%_ } _%>

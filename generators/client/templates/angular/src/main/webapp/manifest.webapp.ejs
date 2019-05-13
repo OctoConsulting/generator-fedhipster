@@ -1,6 +1,7 @@
 {
   "name": "<%=angularXAppName%>",
   "short_name": "<%=angularXAppName%>",
+<%_ if (styleLibrary === 'bootstrap') { _%>
   "icons": [
       {
           "src": "./content/images/<%=hipster%>_head-192.png",
@@ -23,6 +24,7 @@
           "type": "image/png"
       }
   ],
+<%_ } _%>
   "theme_color": "#000000",
   "background_color": "#e0e0e0",
   "start_url": ".",

@@ -42,9 +42,12 @@ const files = {
                 'webpack/webpack.common.js',
                 'webpack/webpack.dev.js',
                 'webpack/webpack.prod.js',
-                'postcss.config.js',
-                { file: 'webpack/logo-jhipster.png', method: 'copy' }
+                'postcss.config.js'
             ]
+        },
+        {
+            condition: generator => generator.styleLibrary === 'bootstrap',
+            templates: [{ file: 'webpack/logo-jhipster.png', method: 'copy' }]
         },
         {
             condition: generator => !generator.skipCommitHook,
@@ -54,7 +57,12 @@ const files = {
     sass: [
         {
             path: MAIN_SRC_DIR,
-            templates: ['content/scss/_bootstrap-variables.scss', 'content/scss/global.scss', 'content/scss/vendor.scss']
+            templates: ['content/scss/global.scss', 'content/scss/vendor.scss']
+        },
+        {
+            condition: generator => generator.styleLibrary === 'bootstrap',
+            path: MAIN_SRC_DIR,
+            templates: ['content/scss/_bootstrap-variables.scss']
         },
         {
             condition: generator => generator.enableI18nRTL,
@@ -65,6 +73,7 @@ const files = {
     image: [
         {
             path: MAIN_SRC_DIR,
+            condition: generator => generator.styleLibrary === 'bootstrap',
             templates: [
                 { file: 'content/images/jhipster_family_member_0.svg', method: 'copy' },
                 { file: 'content/images/jhipster_family_member_1.svg', method: 'copy' },
@@ -88,6 +97,14 @@ const files = {
                 { file: 'content/images/jhipster_family_member_3_head-512.png', method: 'copy' },
                 { file: 'content/images/logo-jhipster.png', method: 'copy' }
             ]
+        },
+        {
+            path: MAIN_SRC_DIR,
+            condition: generator => generator.styleLibrary === 'uswds',
+            templates: [
+                { file: 'content/images/us_flag_small.png', method: 'copy' },
+                { file: 'content/js/uswds.min.js', method: 'copy' }
+            ]
         }
     ],
     swagger: [
@@ -99,16 +116,34 @@ const files = {
     commonWeb: [
         {
             path: MAIN_SRC_DIR,
+            templates: ['WEB-INF/web.xml', 'robots.txt', '404.html', 'index.html', 'manifest.webapp']
+        },
+        {
+            condition: generator => generator.styleLibrary === 'bootstrap',
+            path: MAIN_SRC_DIR,
+            templates: [{ file: 'favicon.ico', method: 'copy' }]
+        },
+        {
+            condition: generator => generator.styleLibrary === 'uswds',
+            path: MAIN_SRC_DIR,
+            templates: [{ file: 'favicon-uswds.ico', method: 'copy', renameTo: generator => 'favicon.ico' }]
+        },
+        {
+            condition: generator => generator.styleLibrary === 'bootstrap',
+            path: MAIN_SRC_DIR,
+            templates: ['content/css/loading.css']
+        },
+        {
+            condition: generator => generator.styleLibrary === 'uswds',
+            path: MAIN_SRC_DIR,
             templates: [
-                'WEB-INF/web.xml',
-                { file: 'favicon.ico', method: 'copy' },
-                'robots.txt',
-                '404.html',
-                'index.html',
-                'manifest.webapp',
-                'content/css/loading.css'
+                {
+                    file: 'content/css/loading-uswds.css',
+                    method: 'copy',
+                    renameTo: generator => 'content/css/loading.css'
+                }
             ]
-        }
+        },
     ],
     angularApp: [
         {
@@ -121,12 +156,16 @@ const files = {
                 'polyfills.ts',
                 'vendor.ts',
                 'blocks/config/prod.config.ts',
-                'blocks/config/uib-pagination.config.ts',
                 // interceptors
                 'blocks/interceptor/errorhandler.interceptor.ts',
                 'blocks/interceptor/notification.interceptor.ts',
                 'blocks/interceptor/auth-expired.interceptor.ts'
             ]
+        },
+        {
+            condition: generator => generator.styleLibrary === 'bootstrap',
+            path: ANGULAR_DIR,
+            templates: ['blocks/config/uib-pagination.config.ts']
         },
         {
             condition: generator => generator.authenticationType === 'jwt',
@@ -153,9 +192,6 @@ const files = {
                 'layouts/profiles/profile-info.model.ts',
                 'layouts/main/main.component.ts',
                 'layouts/main/main.component.html',
-                { file: 'layouts/navbar/navbar.component.ts', method: 'processJs' },
-                { file: 'layouts/navbar/navbar.component.html', method: 'processHtml' },
-                'layouts/navbar/navbar.route.ts',
                 'layouts/footer/footer.component.ts',
                 { file: 'layouts/footer/footer.component.html', method: 'processHtml' },
                 { file: 'layouts/error/error.route.ts', method: 'processJs' },
@@ -164,13 +200,43 @@ const files = {
             ]
         },
         {
-            condition: generator => generator.enableTranslation,
+            condition: generator => generator.enableTranslation && generator.styleLibrary === 'bootstrap',
             path: ANGULAR_DIR,
             templates: ['layouts/navbar/active-menu.directive.ts']
         },
         {
+            condition: generator => generator.styleLibrary === 'bootstrap',
             path: ANGULAR_DIR,
-            templates: ['layouts/profiles/page-ribbon.scss', 'layouts/navbar/navbar.scss', 'home/home.scss']
+            templates: [
+                { file: 'layouts/navbar/navbar.component.ts', method: 'processJs' },
+                { file: 'layouts/navbar/navbar.component.html', method: 'processHtml' },
+                'layouts/navbar/navbar.route.ts'
+            ]
+        },
+        {
+            condition: generator => generator.styleLibrary === 'uswds',
+            path: ANGULAR_DIR,
+            templates: [
+                { file: 'layouts/header/header.component.ts', method: 'processJs' },
+                { file: 'layouts/header/header.route.ts', method: 'processJs' },
+                { file: 'layouts/header/header.component.html', method: 'processHtml' },
+                { file: 'layouts/banner/banner.component.ts', method: 'processJs' },
+                { file: 'layouts/banner/banner.component.html', method: 'processHtml' }
+            ]
+        },
+        {
+            path: ANGULAR_DIR,
+            templates: ['layouts/profiles/page-ribbon.scss', 'home/home.scss']
+        },
+        {
+            condition: generator => generator.styleLibrary === 'bootstrap',
+            path: ANGULAR_DIR,
+            templates: ['layouts/navbar/navbar.scss']
+        },
+        {
+            condition: generator => generator.styleLibrary === 'uswds',
+            path: ANGULAR_DIR,
+            templates: ['layouts/header/header.scss', 'layouts/banner/banner.scss']
         }
     ],
     angularAccountModule: [

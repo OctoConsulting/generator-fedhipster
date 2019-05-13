@@ -16,21 +16,31 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -%>
-export * from './error/error.component';
-export * from './error/error.route';
-export * from './main/main.component';
-export * from './footer/footer.component';
-<%_ if (styleLibrary === 'bootstrap') { %>
-export * from './navbar/navbar.component';
-export * from './navbar/navbar.route';
-    <%_ if (enableTranslation) { _%>
-export * from './navbar/active-menu.directive';
-    <%_ } _%>
-<%_ } else { _%>
-export * from './banner/banner.component';
-export * from './header/header.component';
-export * from './header/header.route';
-<%_ } _%>
-export * from './profiles/page-ribbon.component';
-export * from './profiles/profile.service';
-export * from './profiles/profile-info.model';
+.sticky-banner{
+    position: fixed;
+    z-index: 20000;
+    background: #f1f1f1;
+    width: 100%;
+}
+
+/**Create circle to wrap the icon on the banner**/
+.span-circle-wrap{
+    border-radius: 50%;
+    width: 43px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.blue-circle-wrap{
+    border: 1px solid #2B81AF;
+    color: #2B81AF;
+}
+
+.green-circle-wrap{
+    border: 1px solid green;
+    color: green;
+}
+
+a:hover{
+    cursor: pointer;
+}
