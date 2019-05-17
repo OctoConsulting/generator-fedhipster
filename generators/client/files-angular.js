@@ -316,6 +316,16 @@ const files = {
                 { file: 'admin/logs/logs.component.ts', method: 'processJs' },
                 { file: 'admin/logs/logs.component.html', method: 'processHtml' },
                 'admin/logs/logs.service.ts',
+                'admin/metrics/index.ts',
+                { file: 'admin/metrics/jhi-jvm-memory.component.ts', method: 'processJs' },
+                { file: 'admin/metrics/jhi-jvm-threads.component.ts', method: 'processJs' },
+                { file: 'admin/metrics/jhi-metrics-cache.component.ts', method: 'processJs' },
+                { file: 'admin/metrics/jhi-metrics-datasource.component.ts', method: 'processJs' },
+                { file: 'admin/metrics/jhi-metrics-endpoints-requests.ts', method: 'processJs' },
+                { file: 'admin/metrics/jhi-metrics-garbagecollector.component.ts', method: 'processJs' },
+                { file: 'admin/metrics/jhi-metrics-modal-threads.component.ts', method: 'processJs' },
+                { file: 'admin/metrics/jhi-metrics-request.component.ts', method: 'processJs' },
+                { file: 'admin/metrics/jhi-metrics-system.component.ts', method: 'processJs' },
                 { file: 'admin/metrics/metrics.route.ts', method: 'processJs' },
                 { file: 'admin/metrics/metrics.component.ts', method: 'processJs' },
                 { file: 'admin/metrics/metrics.component.html', method: 'processHtml', template: true },
@@ -417,9 +427,12 @@ const files = {
                 // alert service code
                 'shared/alert/alert.component.ts',
                 'shared/alert/alert-error.component.ts',
-                // dates
-                'shared/util/datepicker-adapter.ts'
             ]
+        },
+        {
+            condition: generator => generator.styleLibrary === 'bootstrap',
+            path: ANGULAR_DIR,
+            templates: ['shared/util/datepicker-adapter.ts']
         },
         {
             path: ANGULAR_DIR,
@@ -479,10 +492,14 @@ const files = {
                 'spec/helpers/mock-route.service.ts',
                 'spec/helpers/mock-login.service.ts',
                 'spec/helpers/mock-event-manager.service.ts',
-                'spec/helpers/mock-active-modal.service.ts',
                 'spec/helpers/mock-state-storage.service.ts',
                 'spec/helpers/mock-alert.service.ts'
             ]
+        },
+        {
+            condition: generator => generator.styleLibrary === 'bootstrap',
+            path: TEST_SRC_DIR,
+            templates: ['spec/helpers/mock-active-modal.service.ts']
         },
         {
             condition: generator => generator.authenticationType !== 'oauth2',

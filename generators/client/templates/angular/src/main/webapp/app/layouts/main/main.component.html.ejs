@@ -18,7 +18,9 @@
 -%>
 <<%= jhiPrefixDashed %>-page-ribbon></<%= jhiPrefixDashed %>-page-ribbon>
 <div>
+    <%_ if (styleLibrary === 'uswds') { _%>
     <jhi-banner></jhi-banner>
+    <%_ } _%>
     <router-outlet name="header"></router-outlet>
 </div>
 <div class="container-fluid">

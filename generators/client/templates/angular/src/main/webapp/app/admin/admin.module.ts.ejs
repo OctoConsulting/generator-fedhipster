@@ -23,6 +23,17 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 <%_ } _%>
 import { <%=angularXAppName%>SharedModule } from 'app/shared';
+import {
+    JhiJvmMemoryComponent,
+    JhiJvmThreadsComponent,
+    JhiMetricsHttpRequestComponent,
+    JhiMetricsEndpointsRequestsComponent,
+    JhiMetricsCacheComponent,
+    JhiMetricsDatasourceComponent,
+    JhiMetricsSystemComponent,
+    JhiMetricsGarbageCollectorComponent,
+    JhiThreadModalComponent
+} from './metrics';
 /* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 import {
@@ -77,7 +88,16 @@ import {
         <%_ if (websocket === 'spring-websocket') { _%>
         <%=jhiPrefixCapitalized%>TrackerComponent,
         <%_ } _%>
-        <%=jhiPrefixCapitalized%>MetricsMonitoringComponent
+        <%=jhiPrefixCapitalized%>MetricsMonitoringComponent,
+        JhiJvmMemoryComponent,
+        JhiJvmThreadsComponent,
+        JhiMetricsHttpRequestComponent,
+        JhiMetricsEndpointsRequestsComponent,
+        JhiMetricsCacheComponent,
+        JhiMetricsDatasourceComponent,
+        JhiMetricsSystemComponent,
+        JhiMetricsGarbageCollectorComponent,
+        JhiThreadModalComponent
     ],
     <%_ if (enableTranslation) { _%>
     providers: [ { provide: JhiLanguageService, useClass: JhiLanguageService } ],

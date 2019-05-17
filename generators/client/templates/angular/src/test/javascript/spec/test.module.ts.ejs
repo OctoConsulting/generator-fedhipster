@@ -20,7 +20,9 @@ import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgModule, ElementRef, Renderer } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+<%_ if ( styleLibrary === 'bootstrap') { _%>
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+<%_ } _%>
 <%_ if (enableTranslation) { _%>
 import { JhiLanguageService, JhiDataUtils, JhiDateUtils, JhiEventManager, JhiAlertService, JhiParseLinks } from 'ng-jhipster';
 
@@ -33,7 +35,9 @@ import { AccountService<% if (authenticationType !== 'oauth2') { %>, LoginModalS
 <%_ } _%>
 import { MockAccountService } from './helpers/mock-account.service';
 import { MockActivatedRoute, MockRouter } from './helpers/mock-route.service';
+<%_ if (styleLibrary === 'bootstrap') { _%>
 import { MockActiveModal } from './helpers/mock-active-modal.service';
+<%_ } _%>
 import { MockEventManager } from './helpers/mock-event-manager.service';
 <%_
 const tsKeyId = generateTestEntityId(pkType, prodDatabaseType);
@@ -65,10 +69,12 @@ _%>
             provide: JhiEventManager,
             useClass:  MockEventManager
         },
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         {
             provide: NgbActiveModal,
             useClass: MockActiveModal
         },
+        <%_ } _%>
         {
             provide: ActivatedRoute,
             useValue: new MockActivatedRoute({id: <%- tsKeyId %>})
@@ -99,10 +105,12 @@ _%>
             provide: JhiAlertService,
             useValue: null
         },
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         {
             provide: NgbModal,
             useValue: null
         },
+        <%_ } _%>
     ],
     imports: [HttpClientTestingModule]
 })

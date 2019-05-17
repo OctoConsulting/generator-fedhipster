@@ -1,16 +1,16 @@
 <div class="sticky-banner">
-    <div>
+    <div style="padding: 0 2px 2px 4px">
         <img title="An official website of the United States Government" class="image-wrap"
              src="/content/images/us_flag_small.png" alt="US Flag Logo"/>
         <span>An official website of the United States Government &nbsp;
             <a (click)="toggleDetails()">Here's how you know
-                <span class="fa" [ngClass]="{'fa-angle-up': showDetail,'fa-angle-down': !showDetail} "></span>
+                <span class="fa" [ngClass]="{'fa-angle-up': showDetails,'fa-angle-down': !showDetails} "></span>
             </a>
         </span>
         <span class="pull-right">This site is in beta and a work in progress &nbsp;</span>
     </div>
     <!--gov banner expand: explain the website is official-->
-    <div class="usa-grid-full" *ngIf="showDetail">
+    <div class="usa-grid-full" *ngIf="showDetails">
         <div class="usa-width-one-whole">
             <div class="usa-width-one-half">
                 <div class="usa-width-one-fourth">

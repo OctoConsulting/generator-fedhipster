@@ -37,10 +37,14 @@
     "@fortawesome/angular-fontawesome": "0.3.0",
     "@fortawesome/fontawesome-svg-core": "1.2.17",
     "@fortawesome/free-solid-svg-icons": "5.8.1",
+    <%_ if (styleLibrary === 'bootstrap') { _%>
     "@ng-bootstrap/ng-bootstrap": "4.1.1",
+    <%_ } _%>
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
+    <%_ if (styleLibrary === 'bootstrap') { _%>
     "bootstrap": "4.3.1",
+    <%_ } _%>
     <%_ if (clientTheme && clientTheme !== 'none') { _%>
     "bootswatch": "4.2.1",
     <%_ } _%>

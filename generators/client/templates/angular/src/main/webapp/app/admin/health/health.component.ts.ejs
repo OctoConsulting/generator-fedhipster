@@ -17,7 +17,10 @@
  limitations under the License.
 -%>
 import { Component, OnInit } from '@angular/core';
+
+<%_ if (styleLibrary === 'bootstrap') { _%>
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+<%_ } _%>
 
 import { <%=jhiPrefixCapitalized%>HealthService } from './health.service';
 import { <%=jhiPrefixCapitalized%>HealthModalComponent } from './health-modal.component';
@@ -31,7 +34,9 @@ export class <%=jhiPrefixCapitalized%>HealthCheckComponent implements OnInit {
     updatingHealth: boolean;
 
     constructor(
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         private modalService: NgbModal,
+        <%_ } _%>
         private healthService: <%=jhiPrefixCapitalized%>HealthService
     ) {
 
@@ -68,6 +73,7 @@ export class <%=jhiPrefixCapitalized%>HealthCheckComponent implements OnInit {
     }
 
     showHealth(health: any) {
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         const modalRef  = this.modalService.open(<%=jhiPrefixCapitalized%>HealthModalComponent);
         modalRef.componentInstance.currentHealth = health;
         modalRef.result.then((result) => {
@@ -75,6 +81,7 @@ export class <%=jhiPrefixCapitalized%>HealthCheckComponent implements OnInit {
         }, (reason) => {
             // Left blank intentionally, nothing to do here
         });
+        <%_ } _%>
     }
 
     subSystemName(name: string) {

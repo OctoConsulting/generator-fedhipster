@@ -10,8 +10,11 @@ import {
     FindLanguageFromKeyPipe
 } from 'app/shared';
 <%_ } _%>
+
+<%_ if (styleLibrary === 'bootstrap') { _%>
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateMomentAdapter } from 'app/shared/util/datepicker-adapter';
+<%_ } _%>
 
 @NgModule({
     imports: [
@@ -29,7 +32,9 @@ import { NgbDateMomentAdapter } from 'app/shared/util/datepicker-adapter';
             useValue: '<%= localeId %>'
         <%_ } _%>
         },
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         { provide: NgbDateAdapter, useClass: NgbDateMomentAdapter},
+        <%_ } _%>
         <%_ if (enableI18nRTL) { _%>
         FindLanguageFromKeyPipe,
         <%_ } _%>

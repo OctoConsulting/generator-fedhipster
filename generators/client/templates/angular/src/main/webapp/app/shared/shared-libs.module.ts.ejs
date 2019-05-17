@@ -19,7 +19,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+<%_ if (styleLibrary === 'bootstrap') { _%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<%_ } _%>
 import { NgJhipsterModule } from 'ng-jhipster';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CookieModule } from 'ngx-cookie';
@@ -27,7 +29,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     imports: [
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         NgbModule,
+        <%_ } _%>
         InfiniteScrollModule,
         CookieModule.forRoot(),
         FontAwesomeModule,
@@ -36,7 +40,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     exports: [
         FormsModule,
         CommonModule,
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         NgbModule,
+        <%_ } _%>
         NgJhipsterModule,
         InfiniteScrollModule,
         FontAwesomeModule,
