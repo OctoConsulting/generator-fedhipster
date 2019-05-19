@@ -21,7 +21,7 @@
 		{{'health.indicator.' + baseName(currentHealth.name) | translate}}<% } else { %><span class="text-capitalize">{{ baseName(currentHealth.name) }}</span><% } %>
         {{subSystemName(currentHealth.name)}}
     </h4>
-    <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="activeModal.dismiss('closed')"><span aria-hidden="true">&times;</span>
+    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body pad">
@@ -50,5 +50,5 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button data-dismiss="modal" class="btn btn-secondary float-left" type="button" (click)="activeModal.dismiss('closed')">Done</button>
+    <button data-dismiss="modal" class="btn btn-secondary float-left" type="button">Done</button>
 </div>

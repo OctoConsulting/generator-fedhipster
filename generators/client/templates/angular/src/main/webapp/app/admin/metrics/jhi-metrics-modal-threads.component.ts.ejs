@@ -26,7 +26,7 @@ import { NgbActiveModal } from '@ng-boostrap/ng-bootstrap';
     template: `
         <div class="modal-header">
             <h4 class="modal-title" jhiTranslate="metrics.jvm.threads.dump.title">Threads dump</h4>
-            <button type="button" class="close" (click)="activeModal.dismiss('closed')">&times;</button>
+            <button type="button" class="close">&times;</button>
         </div>
         <div class="modal-body">
             <span class="badge badge-primary" (click)="threadDumpFilter = {}">
@@ -95,7 +95,7 @@ import { NgbActiveModal } from '@ng-boostrap/ng-bootstrap';
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary float-left" data-dismiss="modal" (click)="activeModal.dismiss('closed')">
+            <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">
                 Done
             </button>
         </div>
