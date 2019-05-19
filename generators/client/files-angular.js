@@ -65,6 +65,11 @@ const files = {
             templates: ['content/scss/_bootstrap-variables.scss']
         },
         {
+            condition: generator => generator.styleLibrary === 'uswds',
+            path: MAIN_SRC_DIR,
+            templates: [{ file: 'content/uswds', method: 'copy', noEjs: true }]
+        },
+        {
             condition: generator => generator.enableI18nRTL,
             path: MAIN_SRC_DIR,
             templates: ['content/scss/rtl.scss']

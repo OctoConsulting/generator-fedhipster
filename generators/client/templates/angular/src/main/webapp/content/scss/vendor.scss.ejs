@@ -29,7 +29,7 @@ eg $input-color: red;
 <%_ if (styleLibrary === 'bootstrap') { _%>
 @import '~bootstrap/scss/bootstrap';
 <%_ } else { _%>
-@import '~uswds/dist/css/uswds.min.css';
+@import '../uswds/stylesheets/uswds';
 <%_ } _%>
 <%_ if (clientTheme && clientTheme !== 'none') { _%>
 @import "~bootswatch/dist/<%= clientTheme %>/bootswatch";
