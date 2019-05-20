@@ -30,12 +30,14 @@ import { <%= entityAngularName %>Service } from './<%= entityFileName %>.service
 import { <%= entityAngularName %>Component } from './<%= entityFileName %>.component';
 import { <%= entityAngularName %>DetailComponent } from './<%= entityFileName %>-detail.component';
 import { <%= entityAngularName %>UpdateComponent } from './<%= entityFileName %>-update.component';
+<%_ if (styleLibrary === 'bootstrap') { _%>
 <%_ if (entityFileName.length <= 30) { _%>
 import { <%= entityAngularName %>DeletePopupComponent } from './<%= entityFileName %>-delete-dialog.component';
 <%_ } else { _%>
 import {
     <%= entityAngularName %>DeletePopupComponent
 } from './<%= entityFileName %>-delete-dialog.component';
+<%_ } _%>
 <%_ } _%>
 import { I<%= entityAngularName %> } from 'app/shared/model/<%= entityModelFileName %>.model';
 
@@ -113,6 +115,7 @@ export const <%= entityInstance %>Route: Routes = [
     },
 ];
 
+<%_ if (styleLibrary === 'bootstrap') { _%>
 export const <%= entityInstance %>PopupRoute: Routes = [
     {
         path: ':id/delete',
@@ -128,3 +131,4 @@ export const <%= entityInstance %>PopupRoute: Routes = [
         outlet: 'popup'
     }
 ];
+<%_ } _%>

@@ -28,15 +28,21 @@ import {
     <%= entityAngularName %>Component,
     <%= entityAngularName %>DetailComponent,
     <%= entityAngularName %>UpdateComponent,
+    <%_ if (styleLibrary === 'bootstrap') { _%>
     <%= entityAngularName %>DeletePopupComponent,
     <%= entityAngularName %>DeleteDialogComponent,
+    <%_ } _%>
     <%= entityInstance %>Route,
+    <%_ if (styleLibrary === 'bootstrap') { _%>
     <%= entityInstance %>PopupRoute
+    <%_ } _%>
 } from './';
 
 const ENTITY_STATES = [
     ...<%= entityInstance %>Route,
+    <%_ if (styleLibrary === 'bootstrap') { _%>
     ...<%= entityInstance %>PopupRoute,
+    <%_ } _%>
 ];
 
 @NgModule({
@@ -48,14 +54,18 @@ const ENTITY_STATES = [
         <%= entityAngularName %>Component,
         <%= entityAngularName %>DetailComponent,
         <%= entityAngularName %>UpdateComponent,
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         <%= entityAngularName %>DeleteDialogComponent,
         <%= entityAngularName %>DeletePopupComponent,
+        <%_ } _%>
     ],
     entryComponents: [
         <%= entityAngularName %>Component,
         <%= entityAngularName %>UpdateComponent,
+        <%_ if (styleLibrary === 'bootstrap') { _%>
         <%= entityAngularName %>DeleteDialogComponent,
         <%= entityAngularName %>DeletePopupComponent,
+         <%_ } _%>
     ],
     <%_ if (enableTranslation) { _%>
     providers: [ { provide: JhiLanguageService, useClass: JhiLanguageService } ],

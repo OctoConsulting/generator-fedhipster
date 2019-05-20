@@ -18,7 +18,9 @@
 -%>
 export * from './<%= entityFileName %>.service';
 export * from './<%= entityFileName %>-update.component';
+<%_ if (styleLibrary === 'bootstrap') { _%>
 export * from './<%= entityFileName %>-delete-dialog.component';
+<%_ } _%>
 export * from './<%= entityFileName %>-detail.component';
 export * from './<%= entityFileName %>.component';
 export * from './<%= entityFileName %>.route';
