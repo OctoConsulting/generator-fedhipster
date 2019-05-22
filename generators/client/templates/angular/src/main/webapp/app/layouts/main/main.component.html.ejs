@@ -19,12 +19,14 @@
 <<%= jhiPrefixDashed %>-page-ribbon></<%= jhiPrefixDashed %>-page-ribbon>
 <div>
     <%_ if (styleLibrary === 'uswds') { _%>
-    <jhi-banner></jhi-banner>
-    <%_ } _%>
+    <<%= jhiPrefixDashed %>-banner></<%= jhiPrefixDashed %>-banner>
+    <<%= jhiPrefixDashed %>-header></<%= jhiPrefixDashed %>-header>
+    <%_ } else { _%>
     <router-outlet name="header"></router-outlet>
+    <%_ } _%>
 </div>
 <div class="container-fluid">
-    <div class="card jh-card">
+    <div<% if (styleLibrary === 'bootstrap') { %> class="card jh-card"<% } %>>
         <router-outlet></router-outlet>
         <router-outlet name="popup"></router-outlet>
     </div>

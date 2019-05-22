@@ -107,7 +107,7 @@ const files = {
             path: MAIN_SRC_DIR,
             condition: generator => generator.styleLibrary === 'uswds',
             templates: [
-                { file: 'content/images/us_flag_small.png', method: 'copy' },
+                { file: 'content/images/uswds', method: 'copy', noEjs: true },
                 { file: 'content/js/uswds.min.js', method: 'copy' }
             ]
         }

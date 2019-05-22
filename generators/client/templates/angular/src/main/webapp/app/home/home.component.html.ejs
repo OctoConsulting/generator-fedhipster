@@ -16,12 +16,89 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -%>
+<%_ if (styleLibrary === 'uswds') { _%>
+<section class="image-bg grid-col-12" style="background: url(/content/images/uswds/home-page.png);">
+    <div class="grid-container">
+        <div class = "pd-tp-2">
+            <div class="usa-hero__callout blob">
+                <h1 class="usa-hero__heading desc-col">
+                    <span class="usa-hero__heading--alt call-out">{{blob.callOut}}</span>
+                    {{blob.blobStatement}}
+                </h1>
+                <p>{{blob.blobPara}}</p>
+                <a class="usa-button" href="javascript:void(0)">Call to action</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="grid-col-12">
+    <div class="grid-container">
+        <div class = "grid-row tagline-pd">
+            <div class = "tablet:grid-col-4 tag">
+                A tagline highlights your approach
+            </div>
+            <div class = "tablet:grid-col-8 tag-msg">
+                <p>
+                    The tagline should inspire confidence and interest, focusing on the value that your overall approach offers to your audience. Use a heading typeface and keep your tagline to just a few words, and don’t confuse or mystify.
+                </p>
+                <p>
+                    Use the right side of the grid to explain the tagline a bit more. What are your goals? How do you do your work? Write in the present tense, and stay brief here. People who are interested can find details on internal pages.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="usa-graphic-list usa-section usa-section--dark">
+    <div class="grid-container">
+        <div class="usa-graphic-list__row grid-row grid-gap">
+            <div class="usa-media-block tablet:grid-col">
+                <img class="usa-media-block__img"  src="/content/images/uswds/orange-circle-icon-md.png" alt="Alt text" style="width : 125px;">
+                <div class="usa-media-block__body">
+                    <h3 class="usa-graphic-list__heading" style = "color :#F6891F;">Graphic headings can vary.</h3>
+                    <p>Graphic headings can be used a few different ways, depending on what your landing page is for. Highlight your values, specific program areas, or results.</p>
+                </div>
+            </div>
+            <div class="usa-media-block tablet:grid-col">
+                <img class="usa-media-block__img"  src="/content/images/uswds/orange-circle-icon-md.png" alt="Alt text" style="width : 125px;">
+                <div class="usa-media-block__body">
+                    <h3 class="usa-graphic-list__heading" style = "color :#F6891F;">Graphic headings can vary.</h3>
+                    <p>Graphic headings can be used a few different ways, depending on what your landing page is for. Highlight your values, specific program areas, or results.</p>
+                </div>
+            </div>
+        </div>
+        <div class="usa-graphic-list__row grid-row grid-gap">
+            <div class="usa-media-block tablet:grid-col">
+                <img class="usa-media-block__img"  src="/content/images/uswds/orange-circle-icon-md.png" alt="Alt text" style="width : 125px;">
+                <div class="usa-media-block__body">
+                    <h3 class="usa-graphic-list__heading" style = "color :#F6891F;">Graphic headings can vary.</h3>
+                    <p>Graphic headings can be used a few different ways, depending on what your landing page is for. Highlight your values, specific program areas, or results.</p>
+                </div>
+            </div>
+            <div class="usa-media-block tablet:grid-col">
+                <img class="usa-media-block__img"  src="/content/images/uswds/orange-circle-icon-md.png" alt="Alt text" style="width : 125px;">
+                <div class="usa-media-block__body">
+                    <h3 class="usa-graphic-list__heading" style = "color :#F6891F;">Graphic headings can vary.</h3>
+                    <p>Graphic headings can be used a few different ways, depending on what your landing page is for. Highlight your values, specific program areas, or results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="usa-section">
+    <div class="grid-container">
+        <h2 class="font-heading-xl margin-y-0">Section heading</h2>
+        <p class="usa-intro">Everything up to this point should help people understand your agency or project: who you are, your goal or mission, and how you approach it. Use this section to encourage them to act. Describe why they should get in touch here, and use an active verb on the button below. “Get in touch,” “Learn more,” and so on.</p>
+        <a class="usa-button usa-button--big" href="#">Call to action</a>
+    </div>
+</section>
+<%_ } else { _%>
 <div class="row">
     <div class="col-md-3">
         <span class="hipster img-fluid rounded"></span>
     </div>
     <div class="col-md-9">
         <a href="javascript:void(0)" (click)="login()">Signin</a>
+        <br>
         <h1 class="display-4" jhiTranslate="home.title">Welcome, Java Hipster!</h1>
         <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
 
@@ -60,3 +137,4 @@
         </p>
     </div>
 </div>
+<%_ } _%>

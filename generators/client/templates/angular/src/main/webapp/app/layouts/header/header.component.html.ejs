@@ -1,21 +1,60 @@
-<%#
- Copyright 2013-2019 the original author or authors from the JHipster project.
-
- This file is part of the JHipster project, see https://www.jhipster.tech/
- for more information.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--%>
-<header>
-    TODO: Create header
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header--extended" style="background: #122E51;" role="banner">
+    <div class="usa-navbar">
+        <div class="usa-logo" id="extended-logo">
+            <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home" style="color: #FFFFFF;"><%= baseName %></a></em>
+        </div>
+        <button class="usa-menu-btn">Menu</button>
+    </div>
 </header>
+<div class="usa-header usa-header--extended header-bkg ">
+<nav role="navigation" class="usa-nav">
+    <div class="usa-nav__inner"><button class="usa-nav__close"><img src="/assets/img/close.svg" alt="close"></button>
+        <ul class="usa-nav__primary usa-accordion">
+            <li class="usa-nav__primary-item">
+                <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one">
+                    <span>{{sections.sectionName1}}</span>
+                </button>
+                <ul id="extended-nav-section-one" class="usa-nav__submenu">
+                    <li class="usa-nav__submenu-item">
+                        <a href="#">Navigation link</a>
+                    </li>
+                    <li class="usa-nav__submenu-item">
+                        <a href="#">Navigation link</a>
+                    </li>
+                    <li class="usa-nav__submenu-item">
+                        <a href="#">Navigation link</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="usa-nav__primary-item">
+                <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-two">
+                    <span>{{sections.sectionName2}}</span>
+                </button>
+                <ul id="extended-nav-section-two" class="usa-nav__submenu">
+                    <li class="usa-nav__submenu-item">
+                        <a href="#">Navigation link</a>
+                    </li>
+                    <li class="usa-nav__submenu-item">
+                        <a href="#">Navigation link</a>
+                    </li>
+                    <li class="usa-nav__submenu-item">
+                        <a href="#">Navigation link</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+        </ul>
+        <div class="usa-nav__secondary">
+            <form class="usa-search usa-search--small" style="display: flex">
+                <a href="javascript:void(0)" (click)="login()" style="color: white; width: 3em">Sign in</a>
+                <div role="search">
+                    <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
+                    <input class="usa-input" id="extended-search-field-small" type="search" name="search" placeholder="Search our site">
+                    <button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+</div>

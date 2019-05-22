@@ -33,6 +33,14 @@ import { <% if (authenticationType !== 'oauth2') { %>LoginModalService<% } else 
 
 })
 export class HomeComponent implements OnInit {
+    <%_ if (styleLibrary === 'uswds') { _%>
+    blob = {
+        callOut :"Hero Callout",
+        blobStatement: "Bring attention to a project priority",
+        blobPara : "Support the callout with some short explanatory text. You don’t need more than a couple of sentences."
+    }
+    blobBtn = "Call to action";
+    <%_ } _%>
     account: Account;
     <%_ if (authenticationType !== 'oauth2') { _%>
     modalRef: NgbModalRef;
