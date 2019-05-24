@@ -125,17 +125,30 @@ module.exports = class extends needleClientBase {
         return this.generateFileModel(modulePath, needle, this.generator.stripMargin(`|${appName}${angularName}Module,`));
     }
 
-    addEntityToMenu(routerName, enableTranslation, entityTranslationKeyMenu) {
+    addEntityToMenu(routerName, enableTranslation, entityTranslationKeyMenu, styleLibrary) {
         const errorMessage = `${chalk.yellow('Reference to ') + routerName} ${chalk.yellow('not added to menu.\n')}`;
-        const entityMenuPath = `${CLIENT_MAIN_SRC_DIR}app/layouts/navbar/navbar.component.html`;
-        const entityEntry =
-            // prettier-ignore
-            this.generator.stripMargin(`|<li>
+        const entityMenuPath = styleLibrary === 'bootstrap'
+            ? `${CLIENT_MAIN_SRC_DIR}app/layouts/navbar/navbar.component.html`
+            : `${CLIENT_MAIN_SRC_DIR}app/layouts/header/header.component.html`;
+
+        // prettier-ignore
+        const navbarEntry = this.generator.stripMargin(`|<li>
                              |                        <a class="dropdown-item" routerLink="${routerName}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                              |                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
                              |                            <span${enableTranslation ? ` jhiTranslate="global.menu.entities.${entityTranslationKeyMenu}"` : ''}>${_.startCase(routerName)}</span>
                              |                        </a>
                              |                    </li>`);
+
+        // prettier-ignore
+        const headerEntry = `            <li class="usa-nav__primary-item">
+                <button class="usa-nav__link" aria-controls="extended-nav-section-one">
+                    <span>Section</span>
+                </button>
+            </li>`;
+
+        const entityEntry = styleLibrary === 'bootstrap' ? navbarEntry : headerEntry;
+
+
         const rewriteFileModel = this.generateFileModel(entityMenuPath, 'jhipster-needle-add-entity-to-menu', entityEntry);
 
         this.addBlockContentToFile(rewriteFileModel, errorMessage);

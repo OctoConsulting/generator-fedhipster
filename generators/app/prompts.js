@@ -139,7 +139,7 @@ function askForTestOpts(meta) {
     if (!meta && this.existingProject) return;
 
     const choices = [];
-    const defaultChoice = [];
+    const defaultChoice = ['protractor'];
     if (meta || !this.skipServer) {
         // all server side test frameworks should be added here
         choices.push({ name: 'Gatling', value: 'gatling' }, { name: 'Cucumber', value: 'cucumber' });

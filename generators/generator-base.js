@@ -102,7 +102,7 @@ module.exports = class extends PrivateBase {
      */
     addEntityToMenu(routerName, enableTranslation, clientFramework, entityTranslationKeyMenu = _.camelCase(routerName)) {
         if (this.clientFramework === 'angularX') {
-            this.needleApi.clientAngular.addEntityToMenu(routerName, enableTranslation, entityTranslationKeyMenu);
+            this.needleApi.clientAngular.addEntityToMenu(routerName, enableTranslation, entityTranslationKeyMenu, this.styleLibrary);
         } else if (this.clientFramework === 'react') {
             this.needleApi.clientReact.addEntityToMenu(routerName, enableTranslation, entityTranslationKeyMenu);
         }
@@ -1714,6 +1714,7 @@ module.exports = class extends PrivateBase {
                 type: 'checkbox',
                 name: 'languages',
                 message: 'Please choose additional languages to install',
+                default: ['es'],
                 choices: response => _.filter(languageOptions, o => o.value !== response.nativeLanguage)
             }
         ];
