@@ -15,13 +15,6 @@ import { ProfileService } from 'app/layouts/profiles/profile.service';
     styleUrls: [ 'header.scss' ]
 })
 export class HeaderComponent implements OnInit {
-    sections = {
-        sectionName1 : "Section 1",
-        section1Opts :["Navigation link1","Navigation link2","Navigation link3"],
-        sectionName2 : "Section 2",
-        section2Opts :["Navigation link1","Navigation link2","Navigation link3"]
-    }
-
     inProduction: boolean;
     languages: any[];
     swaggerEnabled: boolean;
