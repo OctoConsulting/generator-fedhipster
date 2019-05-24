@@ -108,7 +108,8 @@ const files = {
             condition: generator => generator.styleLibrary === 'uswds',
             templates: [
                 { file: 'content/images/uswds', method: 'copy', noEjs: true },
-                { file: 'content/js/uswds.min.js', method: 'copy' }
+                { file: 'content/js/uswds.min.js', method: 'copy', noEjs: true },
+                { file: 'content/js/uswds.min.js.map', method: 'copy', noEjs: true }
             ]
         }
     ],
