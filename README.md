@@ -11,6 +11,7 @@ Steps to build
 - Choose `Angular` as the framework and `US Wed Design Standard` as the style library.
 - At this point, `npm start` will fail to run because we need to manually override one of the npm dependencies: ng-jhipster
 - To update ng-jhipster, clone the branch from the octo repo: `git clone https://github.com/OctoConsulting/ng-jhipster`
+- Check out the remove bootstrap branch `git checkout remove-bootstrap`
 - Build and package ng-jhipster (See the instructions in the ng-jhipster README for more help). `npm install`, `npm run build`, `cd dist`, `npm pack`
 - Install ng-jhipster into the project you generated (e.g. uwsds-app). `cd ..`, `cd uswdsapp`, `npm install ../ng-jhipster/dist/ng-jhipster-0.9.3.tgz`
 
