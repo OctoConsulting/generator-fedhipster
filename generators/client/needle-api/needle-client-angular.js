@@ -141,14 +141,12 @@ module.exports = class extends needleClientBase {
 
         // prettier-ignore
         const headerEntry = `            <li class="usa-nav__primary-item">
-                <button class="usa-nav__link" aria-controls="extended-nav-section-one">
-                    <span>Section</span>
+                <button class="usa-nav__link" aria-controls="extended-nav-section-one" routerLink="${routerName}" >
+                    <span>${_.startCase(routerName)}</span>
                 </button>
             </li>`;
 
         const entityEntry = styleLibrary === 'bootstrap' ? navbarEntry : headerEntry;
-
-
         const rewriteFileModel = this.generateFileModel(entityMenuPath, 'jhipster-needle-add-entity-to-menu', entityEntry);
 
         this.addBlockContentToFile(rewriteFileModel, errorMessage);
