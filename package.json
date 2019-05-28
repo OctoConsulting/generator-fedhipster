@@ -1,5 +1,5 @@
 {
-    "name": "generator-jhipster",
+    "name": "generator-fedhipster",
     "version": "6.0.0",
     "description": "Spring Boot + Angular/React in one handy generator",
     "files": [
@@ -18,7 +18,8 @@
         "Angular",
         "Twitter Bootstrap",
         "Webpack",
-        "Docker"
+        "Docker",
+        "USWDS"
     ],
     "homepage": "https://www.jhipster.tech/",
     "bugs": "https://github.com/jhipster/generator-jhipster/issues",
