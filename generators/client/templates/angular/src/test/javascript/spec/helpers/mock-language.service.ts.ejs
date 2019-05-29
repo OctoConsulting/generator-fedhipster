@@ -17,7 +17,7 @@
  limitations under the License.
 -%>
 import { SpyObject } from './spyobject';
-import { JhiLanguageService } from 'ng-jhipster';
+import { JhiLanguageService } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 import { JhiLanguageHelper } from 'app/core/language/language.helper';
 import Spy = jasmine.Spy;
 

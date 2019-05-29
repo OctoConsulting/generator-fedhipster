@@ -17,7 +17,7 @@
  limitations under the License.
 -%>
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { JhiAlertService } from 'ng-jhipster';
+import { JhiAlertService } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 
 @Component({
     selector: '<%= jhiPrefixDashed %>-alert',

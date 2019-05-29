@@ -6,7 +6,7 @@ import { JhiDateUtils
 <%_ if (enableTranslation) { _%>
     ,JhiLanguageService
 <%_ } _%>
-} from 'ng-jhipster';
+} from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 <%_ if (enableTranslation) { _%>
 import { MockLanguageService } from '../../../helpers/mock-language.service';

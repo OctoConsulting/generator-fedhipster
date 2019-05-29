@@ -20,7 +20,7 @@ import { Component, AfterViewInit, Renderer, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 
 import { LoginService } from 'app/core/login/login.service';
 import { StateStorageService } from 'app/core/auth/state-storage.service';

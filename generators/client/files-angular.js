@@ -46,10 +46,6 @@ const files = {
             ]
         },
         {
-            condition: generator => generator.styleLibrary === 'uswds',
-            templates: [{ file: 'ng-jhipster-0.9.3.tgz', method: 'copy', noEjs: true }]
-        },
-        {
             condition: generator => generator.styleLibrary === 'bootstrap',
             templates: [{ file: 'webpack/logo-jhipster.png', method: 'copy' }]
         },

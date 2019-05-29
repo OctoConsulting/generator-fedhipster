@@ -20,7 +20,7 @@ import { Component, OnDestroy } from '@angular/core';
 <%_ if (enableTranslation) { _%>
 import { TranslateService } from '@ngx-translate/core';
 <%_ } _%>
-import { JhiEventManager, JhiAlert, JhiAlertService } from 'ng-jhipster';
+import { JhiEventManager, JhiAlert, JhiAlertService } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 import { Subscription } from 'rxjs';
 
 @Component({

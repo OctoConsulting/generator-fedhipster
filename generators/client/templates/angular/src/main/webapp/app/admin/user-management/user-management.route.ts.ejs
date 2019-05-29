@@ -18,7 +18,7 @@
 -%>
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, CanActivate } from '@angular/router';
-import { JhiPaginationUtil, JhiResolvePagingParams } from 'ng-jhipster';
+import { JhiPaginationUtil, JhiResolvePagingParams } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 
 import { AccountService, User, UserService } from 'app/core';
 import { UserMgmtComponent } from './user-management.component';

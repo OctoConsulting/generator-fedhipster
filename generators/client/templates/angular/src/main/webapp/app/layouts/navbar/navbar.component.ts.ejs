@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 <%_ if (authenticationType !== 'oauth2') { _%>
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 <%_ } _%>
-import { JhiLanguageService } from 'ng-jhipster';
+import { JhiLanguageService } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 <%_ if (enableTranslation) { _%>
 import { SessionStorageService } from 'ngx-webstorage';
 <%_ } _%>

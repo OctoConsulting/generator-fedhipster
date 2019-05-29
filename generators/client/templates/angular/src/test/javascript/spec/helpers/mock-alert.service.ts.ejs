@@ -1,5 +1,5 @@
 import { SpyObject } from './spyobject';
-import { JhiAlertService, JhiAlert } from 'ng-jhipster';
+import { JhiAlertService, JhiAlert } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 
 export class MockAlertService extends SpyObject {
 

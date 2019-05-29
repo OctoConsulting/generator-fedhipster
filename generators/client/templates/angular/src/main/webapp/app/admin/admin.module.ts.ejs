@@ -19,7 +19,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 <%_ if (enableTranslation) { _%>
-import { JhiLanguageService } from 'ng-jhipster';
+import { JhiLanguageService } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 import { JhiLanguageHelper } from 'app/core';
 <%_ } _%>
 import { <%=angularXAppName%>SharedModule } from 'app/shared';

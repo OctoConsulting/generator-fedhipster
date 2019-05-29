@@ -21,7 +21,7 @@ import { FormBuilder } from '@angular/forms';
 import { Observable, of, throwError } from 'rxjs';
 
 <%_ if (enableTranslation) { _%>
-import { JhiLanguageService } from 'ng-jhipster';
+import { JhiLanguageService } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 import { MockLanguageService } from '../../../helpers/mock-language.service';
 <%_ } _%>
 import { <%=angularXAppName%>TestModule } from '../../../test.module';

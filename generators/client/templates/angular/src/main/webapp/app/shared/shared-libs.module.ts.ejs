@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 <%_ if (styleLibrary === 'bootstrap') { _%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <%_ } _%>
-import { NgJhipsterModule } from 'ng-jhipster';
+import { NgJhipsterModule } from '<%= styleLibrary === 'bootstrap' ? 'ng-jhipster' : 'ng-fedhipster' %>';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CookieModule } from 'ngx-cookie';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
