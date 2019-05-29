@@ -51,20 +51,20 @@ function requireCLI(preferLocal) {
     /* eslint-disable global-require */
     if (preferLocal) {
         try {
-            const localCLI = require.resolve(path.join(process.cwd(), 'node_modules', 'generator-jhipster', 'cli', 'cli.js'));
-            // if (__dirname !== path.dirname(localCLI)) {
+            const localCLI = require.resolve(path.join(process.cwd(), 'node_modules', 'generator-fedhipster', 'cli', 'cli.js'));
+            if (__dirname !== path.dirname(localCLI)) {
                 // load local version
                 /* eslint-disable import/no-dynamic-require */
-                logger.info("Using JHipster version installed locally in current project's node_modules");
+                logger.info("Using FedHipster version installed locally in current project's node_modules");
                 require(localCLI);
                 return;
-            // }
+            }
         } catch (e) {
             // Unable to find local version, so global one will be loaded anyway
         }
     }
     // load global version
-    logger.info('Using JHipster version installed globally');
+    logger.info('Using FedHipster version installed globally');
     require('./cli');
     /* eslint-enable  */
 }
