@@ -8,6 +8,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 import { VERSION } from 'app/app.constants';
 import { <% if (enableTranslation) { %>JhiLanguageHelper, <% } %>AccountService, LoginService } from 'app/core';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { CookieService } from "ngx-cookie";
 
 @Component({
     selector: '<%= jhiPrefixDashed %>-header',
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
     languages: any[];
     swaggerEnabled: boolean;
     version: string;
+    userName: string;
 
     constructor(
         private loginService: LoginService,
@@ -29,7 +31,8 @@ export class HeaderComponent implements OnInit {
         <%_ } _%>
         private accountService: AccountService,
         private profileService: ProfileService,
-        private router: Router
+        private router: Router,
+        private cookieService: CookieService,
     ) {
         this.version = VERSION ? 'v' + VERSION : '';
     }
@@ -45,6 +48,11 @@ export class HeaderComponent implements OnInit {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
+
+        const regex = /firstName='([A-Za-z]*)'/g;
+        const cookie = this.cookieService.get('sid');
+        const found = regex.exec(cookie);
+        this.userName = found[1];
     }
 
     <%_ if (enableTranslation) { _%>
@@ -55,7 +63,7 @@ export class HeaderComponent implements OnInit {
     <%_ } _%>
 
     isAuthenticated() {
-        return this.accountService.isAuthenticated();
+        return this.cookieService.get('sid');
     }
 
     login() {

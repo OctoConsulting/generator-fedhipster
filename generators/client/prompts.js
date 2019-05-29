@@ -79,6 +79,10 @@ function askForStyleLibrary(meta) {
         {
             value: 'bootstrap',
             name: 'Bootstrap'
+        },
+        {
+            value: 'octo',
+            name: 'Octo Consulting'
         }
     ];
 

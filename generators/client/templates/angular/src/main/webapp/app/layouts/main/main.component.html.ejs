@@ -18,8 +18,10 @@
 -%>
 <<%= jhiPrefixDashed %>-page-ribbon></<%= jhiPrefixDashed %>-page-ribbon>
 <div>
-    <%_ if (styleLibrary === 'uswds') { _%>
+    <%_ if (styleLibrary === 'uswds' || styleLibrary === 'octo') { _%>
+        <%_ if (styleLibrary === 'uswds') { _%>
     <<%= jhiPrefixDashed %>-banner></<%= jhiPrefixDashed %>-banner>
+        <%_ } _%>
     <<%= jhiPrefixDashed %>-header></<%= jhiPrefixDashed %>-header>
     <%_ } else { _%>
     <router-outlet name="header"></router-outlet>
