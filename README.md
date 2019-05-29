@@ -9,7 +9,7 @@
 
 # Welcome FedHipster
 
-## FedHipster is a fork of JHipster with support for U.S. Web Design System (USWDS)
+## FedHipster is a fork of JHipster with support for U.S. Web Design System
 
 Steps to build and test locally
 --- 
