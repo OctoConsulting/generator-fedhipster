@@ -21,24 +21,24 @@
         "Docker",
         "USWDS"
     ],
-    "homepage": "https://www.jhipster.tech/",
-    "bugs": "https://github.com/jhipster/generator-jhipster/issues",
+    "homepage": "www.fedhipster.com",
+    "bugs": "https://github.com/OctoConsulting/generator-fedhipster/issues",
     "author": {
-        "name": "Julien Dubois",
+        "name": "",
         "email": "",
-        "url": "https://github.com/jdubois"
+        "url": "www.fedhipster.com"
     },
     "main": "cli/index.js",
     "bin": {
-        "jhipster": "./cli/jhipster.js"
+        "fedhipster": "./cli/fedhipster.js"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/jhipster/generator-jhipster.git"
+        "url": "git://github.com/OctoConsulting/generator-fedhipster.git"
     },
     "scripts": {
         "prettier:format": "prettier --write \"{,**/}*.{js,json,md,yml}\"",
-        "completion": "tabtab install --name jhipster --auto",
+        "completion": "tabtab install --name fedhipster --auto",
         "lint": "npm run eslint && npm run ejs-lint",
         "lint-fix": "npm run prettier:format && npm run eslint -- --fix",
         "eslint": "eslint .",
@@ -98,10 +98,5 @@
         "node": ">=8.10.0",
         "npm": ">=5.6.0"
     },
-    "license": "Apache-2.0",
-    "collective": {
-        "type": "opencollective",
-        "url": "https://opencollective.com/generator-jhipster",
-        "logo": "https://opencollective.com/opencollective/logo.txt"
-    }
+    "license": "Apache-2.0"
 }
