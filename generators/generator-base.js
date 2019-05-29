@@ -1500,14 +1500,14 @@ module.exports = class extends PrivateBase {
      */
     printJHipsterLogo() {
         this.log('\n');
-        this.log(`${chalk.green('USWDS ')}${chalk.red('UWSDS UWSDS UWSDS UWSDS UWSDS UWSDS UWSDS ')}`);
-        // this.log(`${chalk.green('        ██║')}${chalk.red(' ██║   ██║ ╚══██╔══╝ ██╔═══██╗ ██╔════╝ ╚══██╔══╝ ██╔═════╝ ██╔═══██╗')}`);
-        // this.log(`${chalk.green('        ██║')}${chalk.red(' ████████║    ██║    ███████╔╝ ╚█████╗     ██║    ██████╗   ███████╔╝')}`);
-        // this.log(`${chalk.green('  ██╗   ██║')}${chalk.red(' ██╔═══██║    ██║    ██╔════╝   ╚═══██╗    ██║    ██╔═══╝   ██╔══██║')}`);
-        // this.log(`${chalk.green('  ╚██████╔╝')}${chalk.red(' ██║   ██║ ████████╗ ██║       ██████╔╝    ██║    ████████╗ ██║  ╚██╗')}`);
-        // this.log(`${chalk.green('   ╚═════╝ ')}${chalk.red(' ╚═╝   ╚═╝ ╚═══════╝ ╚═╝       ╚═════╝     ╚═╝    ╚═══════╝ ╚═╝   ╚═╝')}\n`);
+        this.log(`${chalk.blue(':::')}${chalk.red('=====')} ${chalk.blue(':::')}${chalk.red('=====')} ${chalk.blue(':::')}${chalk.red('====')}  ${chalk.blue(':::')}  ${chalk.red('===')} ${chalk.blue(':::')} ${chalk.blue(':::')}${chalk.red('====')}  ${chalk.blue(':::')}${chalk.red('===')}  ${chalk.blue(':::')}${chalk.red('====')} ${chalk.blue(':::')}${chalk.red('=====')} ${chalk.blue(':::')}${chalk.red('====')}`);
+        this.log(`${chalk.blue(':::')}      ${chalk.blue(':::')}      ${chalk.blue(':::')}  ${chalk.white('===')} ${chalk.blue(':::')}  ${chalk.white('===')} ${chalk.blue(':::')} ${chalk.blue(':::')}  ${chalk.white('===')} ${chalk.blue(':::')}     ${chalk.blue(':::')}${chalk.white('====')} ${chalk.blue(':::')}      ${chalk.blue(':::')}  ${chalk.white('===')}`);
+        this.log(`${chalk.red('======   ======   ===  === ======== === =======   =====    ===   ======   =======')}`);
+        this.log(`${chalk.white('===      ===      ===  === ===  === === ===          ===   ===   ===      === ===')}`);
+        this.log(`${chalk.red('===      ======== =======  ===  === === ===      ======    ===   ======== ===  ===')}`);
+        this.log('\n');
         this.log(chalk.white.bold('                            https://www.jhipster.tech\n'));
-        this.log(chalk.white('Welcome to JHipster ') + chalk.yellow(`v${packagejs.version}`));
+        this.log(chalk.white('Welcome to FedHipster ') + chalk.yellow(`v${packagejs.version}`));
         this.log(chalk.white(`Application files will be generated in folder: ${chalk.yellow(process.cwd())}`));
         if (process.cwd() === this.getUserHome()) {
             this.log(chalk.red.bold('\n️⚠️  WARNING ⚠️  You are in your HOME folder!'));

@@ -42,8 +42,12 @@ const files = {
                 'webpack/webpack.common.js',
                 'webpack/webpack.dev.js',
                 'webpack/webpack.prod.js',
-                'postcss.config.js'
+                'postcss.config.js',
             ]
+        },
+        {
+            condition: generator => generator.styleLibrary === 'uswds',
+            templates: [{ file: 'ng-jhipster-0.9.3.tgz', method: 'copy', noEjs: true }]
         },
         {
             condition: generator => generator.styleLibrary === 'bootstrap',
