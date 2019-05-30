@@ -33,7 +33,7 @@ import { <% if (authenticationType !== 'oauth2') { %>LoginModalService<% } else 
 
 })
 export class HomeComponent implements OnInit {
-    <%_ if (styleLibrary === 'uswds') { _%>
+    <%_ if (styleLibrary === 'uswds' || styleLibrary === 'octo') { _%>
     blob = {
         callOut :"Hero Callout",
         blobStatement: "Bring attention to a project priority",
