@@ -65,7 +65,7 @@ const files = {
             templates: ['content/scss/_bootstrap-variables.scss']
         },
         {
-            condition: generator => generator.styleLibrary === 'uswds',
+            condition: generator => generator.styleLibrary === 'uswds' || generator.styleLibrary === 'octo',
             path: MAIN_SRC_DIR,
             templates: [{ file: 'content/uswds', method: 'copy', noEjs: true }]
         },
@@ -105,7 +105,7 @@ const files = {
         },
         {
             path: MAIN_SRC_DIR,
-            condition: generator => generator.styleLibrary === 'uswds',
+            condition: generator => generator.styleLibrary === 'uswds' || generator.styleLibrary === 'octo',
             templates: [
                 { file: 'content/images/uswds', method: 'copy', noEjs: true },
                 { file: 'content/js/uswds.min.js', method: 'copy', noEjs: true },
@@ -130,7 +130,7 @@ const files = {
             templates: [{ file: 'favicon.ico', method: 'copy' }]
         },
         {
-            condition: generator => generator.styleLibrary === 'uswds',
+            condition: generator => generator.styleLibrary === 'uswds' || generator.styleLibrary === 'octo',
             path: MAIN_SRC_DIR,
             templates: [{ file: 'favicon-uswds.ico', method: 'copy', renameTo: generator => 'favicon.ico' }]
         },
@@ -140,7 +140,7 @@ const files = {
             templates: ['content/css/loading.css']
         },
         {
-            condition: generator => generator.styleLibrary === 'uswds',
+            condition: generator => generator.styleLibrary === 'uswds' || generator.styleLibrary === 'octo',
             path: MAIN_SRC_DIR,
             templates: [
                 {
@@ -220,7 +220,7 @@ const files = {
             ]
         },
         {
-            condition: generator => generator.styleLibrary === 'uswds',
+            condition: generator => generator.styleLibrary === 'uswds' || generator.styleLibrary === 'octo',
             path: ANGULAR_DIR,
             templates: [
                 { file: 'layouts/header/header.component.ts', method: 'processJs' },
@@ -240,7 +240,7 @@ const files = {
             templates: ['layouts/navbar/navbar.scss']
         },
         {
-            condition: generator => generator.styleLibrary === 'uswds',
+            condition: generator => generator.styleLibrary === 'uswds' || generator.styleLibrary === 'octo',
             path: ANGULAR_DIR,
             templates: ['layouts/header/header.scss', 'layouts/banner/banner.scss']
         }
