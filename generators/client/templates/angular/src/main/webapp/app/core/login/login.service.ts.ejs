@@ -45,7 +45,7 @@ export class LoginService {
 
         // If you have configured multiple OIDC providers, then, you can update this URL to /login.
         // It will show a Spring Security generated login page with links to configured OIDC providers.
-    <%_ if (styleLibrary === 'uswds') { _%>
+    <%_ if (styleLibrary === 'uswds' || styleLibrary === 'octo') { _%>
         //location.href = `//${location.hostname}${port}/signin`;
         location.href = '//localhost:8000/signin';
     <%_ } else { _%>

@@ -101,7 +101,7 @@ function askForStyleLibrary(meta) {
 
     this.prompt(PROMPT).then(prompt => {
         this.styleLibrary = prompt.styleLibrary;
-        if (this.styleLibrary === 'uswds') {
+        if (this.styleLibrary === 'uswds' || this.styleLibrary === 'octo') {
             this.clientTheme = 'none';
         }
         done();
