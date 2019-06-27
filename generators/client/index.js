@@ -106,7 +106,7 @@ module.exports = class extends BaseBlueprintGenerator {
                     /* for backward compatibility */
                     this.clientFramework = 'angularX';
                 }
-
+                this.styleLibrary = configuration.get('styleLibrary');
                 this.clientTheme = configuration.get('clientTheme');
                 if (!this.clientTheme) {
                     this.clientTheme = 'none';
