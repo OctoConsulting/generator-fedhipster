@@ -48,11 +48,6 @@ export class HeaderComponent implements OnInit {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
-
-        const regex = /firstName='([A-Za-z]*)'/g;
-        const cookie = this.cookieService.get('sid');
-        const found = regex.exec(cookie);
-        this.userName = found[1];
     }
 
     <%_ if (enableTranslation) { _%>
