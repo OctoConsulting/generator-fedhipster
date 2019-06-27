@@ -132,22 +132,28 @@ module.exports = class extends needleClientBase {
             : `${CLIENT_MAIN_SRC_DIR}app/layouts/header/header.component.html`;
 
         // prettier-ignore
-        const navbarEntry = this.generator.stripMargin(`|<li>
+        let entry;
+        if (styleLibrary === 'bootstrap') {
+            // prettier-ignore
+            entry = this.generator.stripMargin(`|<li>
                              |                        <a class="dropdown-item" routerLink="${routerName}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                              |                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
                              |                            <span${enableTranslation ? ` jhiTranslate="global.menu.entities.${entityTranslationKeyMenu}"` : ''}>${_.startCase(routerName)}</span>
                              |                        </a>
                              |                    </li>`);
-
-        // prettier-ignore
-        const headerEntry = `            <li class="usa-nav__primary-item">
-                <button class="usa-nav__link" aria-controls="extended-nav-section-one" routerLink="${routerName}" >
-                    <span>${_.startCase(routerName)}</span>
-                </button>
-            </li>`;
-
-        const entityEntry = styleLibrary === 'bootstrap' ? navbarEntry : headerEntry;
-        const rewriteFileModel = this.generateFileModel(entityMenuPath, 'jhipster-needle-add-entity-to-menu', entityEntry);
+        } else if (styleLibrary === 'octo') {
+            // prettier-ignore
+            entry = `            <li class="usa-nav__primary-item">
+                    <button class="usa-nav__link" aria-controls="extended-nav-section-one" routerLink="${routerName}" >
+                        <span>${_.startCase(routerName)}</span>
+                    </button>
+                </li>`;
+        } else if (styleLibrary === 'uswds') {
+            entry = `                 <li class="usa-nav__submenu-item">
+                            <a routerLink="${routerName}">${_.startCase(routerName)}</a>
+                        </li>`;
+        }
+        const rewriteFileModel = this.generateFileModel(entityMenuPath, 'jhipster-needle-add-entity-to-menu', entry);
 
         this.addBlockContentToFile(rewriteFileModel, errorMessage);
     }
