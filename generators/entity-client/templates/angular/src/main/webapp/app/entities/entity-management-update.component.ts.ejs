@@ -351,4 +351,8 @@ _%>
         return option;
     }
 <%_ } _%>
+
+    shouldShowError(formControl) {
+        return formControl.invalid && (formControl.dirty || formControl.touched);
+    }
 }
